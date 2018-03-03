@@ -1,0 +1,19 @@
+baseurl: /
+permalink: /:title/
+url: https://sn0rt.github.io
+name: Sn0rt's Blog
+author: Sn0rt
+email: Sn0rt@abc.shop.edu.cn
+github: Sn0rt
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  hard_wrap: true
+  extensions:
+    - autolink
+    - footnotes
+    - smart
+gems: [jekyll-paginate]
+safe: false
+paginate: 20

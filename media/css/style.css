@@ -1,0 +1,320 @@
+@import url(https://fonts.googleapis.com/css?family=Galdeano);
+@import url(https://fonts.googleapis.com/css?family=Electrolize);
+@import url(https://fonts.googleapis.com/css?family=Cuprum);
+@import url(https://fonts.googleapis.com/css?family=Source+Code+Pro);
+
+
+body {
+    font-family:"Galdeano","Hiragino Sans GB","Microsoft YaHei",Trebuchet,"Trebuchet MS",Tahoma,"Lucida Grande","Lucida Sans Unicode",Verdana,sans-serif;color:#000000;background-color:#ffffff;}
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    font-size:13px;
+    margin-left:auto;
+    margin-right:auto;
+    color:#2C3E50;
+}
+
+* {
+    border:none;
+    outline:none;
+}
+
+a {
+    color:#dd0000;
+    text-decoration:none;
+    background-color: transparent;
+}
+
+a:hover {
+    color:#333333;
+    text-decoration:underline;
+}
+
+hr {
+    margin:.7em 0;
+    border-top:1px dashed #d0d0d0;
+    border-bottom:1px dashed #f9f9f9;
+}
+
+p {
+    padding:.5em 0;
+    margin:.5em 0;
+}
+
+li {
+    padding: .2em 2em;
+}
+
+ol {
+    list-style-position: inside;
+    border: rgb(226, 222, 222);
+    border-style: solid;
+    border-width:1px;
+    border-radius: 10px;
+    padding: .3em 0;
+}
+
+ul {
+    list-style-position:inside;
+    border: rgb(226, 222, 222);
+    border-style: solid;
+    border-width:1px;
+    border-radius: 10px;
+    padding: .3em 0;
+}
+
+li ol {
+    border-style:none;
+}
+
+li ul {
+    border-style:none;
+}
+
+ol ul, ul ol, ul ul, ol ol {
+    margin-left:1em;
+}
+
+pre code {
+    font-family: 'Source Code Pro', console, terminal, monospace;
+    margin:1em 0;
+    font-size:11px;
+    line-height:1.6;
+    display:block;
+    overflow:auto;
+}
+
+blockquote {
+    display:block;
+    text-align:justify;
+    border-left:4px solid #eeeeee;
+}
+
+blockquote {
+    margin:1em 0em;
+    padding-left:1.5em;
+}
+blockquote p {
+    margin:0;
+    padding:.5em 0;
+}
+
+table {
+    border-collapse: collapse;
+    border-radius: 8px;
+}
+
+tbody {
+    font-size: 12px;
+}
+
+td, th {
+    padding:5px 10px;
+    border:1px solid #886;
+    background:#efefef;
+}
+
+#container {
+    width:850px;
+    margin:2em auto;
+    display:block;
+    padding:0 2em;
+}
+
+.content {
+    font-size:16px;
+    line-height:24px;
+}
+
+.content h1 {
+    padding:.5em 0;
+}
+
+.content img{
+    max-width:640px;
+    display:block;
+    margin:4px auto;
+    -webkit-box-shadow:#999 1px 1px 4px;
+    -moz-box-shadow:#999 1px 1px 4px;
+    box-shadow:#999 1px 1px 4px;
+}
+
+#tag_cloud {
+    margin-bottom: 1em;
+}
+
+#tag_cloud a:hover {
+    color:#333333 !important;
+    text-decoration:none;
+}
+
+.listing-item,.listing-seperator {
+    list-style-type:none;
+}
+
+.listing-item a {
+    padding:.2em 1em;
+}
+
+.listing-item time {
+    color:#999999;
+}
+
+.listing-seperator {
+    font-weight:bold;
+}
+
+.meta {
+    font-size:12px;
+    color:#888;
+}
+
+.pageNav {
+    font-weight:bold;
+    font-size:17px;
+}
+
+.pageNavInvalid {
+    font-weight:bold;
+    font-size:17px;
+    color:#D0D0D0;
+}
+
+header {
+    padding:.5em 0;
+    border-bottom: 1px solid #cccccc;
+}
+
+nav {
+    font-size: 1em;
+    text-transform: uppercase;
+    float: left;
+    margin-left: -8em;
+    width: 6em;
+    text-align: center;
+    padding: 0em 0em;
+}
+
+nav a {
+    display: block;
+    padding:.7em 1em;
+    color: #000000;
+}
+
+nav a:hover{
+    background-color:#ff0000;
+    text-decoration:none;
+    color:#f9f9f9;
+}
+
+.post {
+    padding: .5em 0em;
+}
+
+.post ul {
+    padding: .5em 0em;
+}
+
+.post .listing2{
+    padding:.5em 0em;
+    border-style:none;
+}
+
+h1 {
+    font-size: 1.6em;
+    color: #000;
+}
+
+h2 {
+    font-size:1.4em;
+    color:#111;
+}
+
+h3 {
+    color: #222;
+    padding: .5em 0em;
+    margin: 0em 0em
+}
+
+h4 {
+    font-size: 1em;
+    color: #333;
+}
+
+pre,code {
+    font-size: 12px;
+}
+
+code {
+    background-color: rgba(208, 208, 208, 0.29);
+}
+
+embed,object,iframe {
+    display: block;
+    margin: 4px auto;
+}
+
+.gist {
+    font-size: 12px;
+    line-height: 1.2;
+}
+
+footer{
+    text-align:center;
+    display:block;
+    border-top: 1px dashed #CCC;
+}
+
+footer small {
+    font-size: 13px;
+    color: #AAA;
+}
+
+footer a {
+    color: #888;
+    text-decoration: none;
+}
+
+footer a:hover {
+    border-bottom: 1px dashed #BBB;
+    text-decoration: none;
+}
+
+
+.paginator {
+    color: #AAA;
+    margin: 20px 0;
+    line-height: 150%;
+    display: block;
+}
+
+.paginator a,.paginator span{
+        padding: 0 4px;
+    margin: 2px;
+    text-decoration: none;
+}
+
+.paginator .current-page {
+    color: white;
+    background: #ff0000;
+}
+
+.paginator a:hover{
+    color: white;
+    background: #83BF73;
+}
+
+.footnotes {
+}
+
+.MathJax_Display {
+    color: #222
+}
+
+.MathJax .mo {
+    color: inherit
+}
+
+.MathJax .mi {
+    color: inherit
+}
