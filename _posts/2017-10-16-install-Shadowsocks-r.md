@@ -9,7 +9,7 @@ tag: tips
 
 昨天凌晨到今天早上上班前梯子挂了，这里重新搭建一个。
 
-DO 上入了一个$5/M 的 Ubuntu 17.04 x32，下面就是刷脚本的事情。
+DO 上入了一个$5/M 的 `Ubuntu 17.04 x32`，下面就是刷脚本的事情。
 
 安装 shadowsocksR,需要注意的事情就是不要选客户端不支持的 obfs，一开始选错了可以在`/etc/shadowsocks.json` 中修改，保持和客户端兼容。重启在`/etc/init.d/shadowsocks restart`
 

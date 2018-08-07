@@ -9,7 +9,7 @@ title: kube-proxy iptables规则生成
 
 ​	做容器也有半年了，写需求的过程中发现当我创建`LoaderBalancer`类型的`service`时候`kube-proxy iptables`模式会产生一条公网规则的同步到集群中的全部节点上。当时我就很奇怪为啥公网lb还要生成`iptables`规则。
 
-​	在梳理iptables规则之前先看一下`loadBalancer`类型的`kuberntes service`的流量链路，以腾讯云为例看一下腾讯云`TKE`下的流量链路，通过咨询的方式知道了，腾讯云的公网方案实际是`k8s`的去`clb`去买了一个lb，结合`clb`的现网文档，理解出来的流量的入链路如下:
+​	在梳理iptables规则之前先看一下`loadBalancer`类型的`kuberntes service`的流量链路，以腾讯云为例看一下腾讯云`TKE`下的流量链路，通过咨询的方式知道了，腾讯云的公网方案实际是`k8s`的去`clb`去买了一个lb，结合`clb`的官方产品文档，理解出来的流量的入链路如下:
 
 ```yaml
 traffic in -> clb(TGW->GRE tunnel->vm) -> iptables -> pod
