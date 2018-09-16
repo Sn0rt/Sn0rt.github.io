@@ -7,13 +7,13 @@ tag: 容器
 title: kube-scheduler pod cidr bugfix
 ---
 
-	之前写一个需求需要做容器网络的规划，发现`kuberntes`在调度的时候不会把ip地址作为一个调度的参考项。也就是手当`node`上规划出来的子网中的ip用光且cpu和mem以及其他调度参考项都满足的时候pod还是会被分配到这个节点上，并且`kubelet`会伴随着如下报错：
+​	之前写一个需求需要做容器网络的规划，发现`kuberntes`在调度的时候不会把ip地址作为一个调度的参考项。也就是手当`node`上规划出来的子网中的ip用光且cpu和mem以及其他调度参考项都满足的时候pod还是会被分配到这个节点上，并且`kubelet`会伴随着如下报错：
 
 ```
 NetworkPlugin kubenet failed to set up pod "frontend-jh0kf_default" network: Error adding container to network: no IP addresses available in network: kubenet
 ```
 
-	修复方案有很多种，核心思路是围绕着调度器参考的对象。比较优雅的方式是在`kube-scheduler`中将ip地址也作为一个调度资源，但是这个实现起来工作量相对其他方法大了一点；有个折中取巧的方式是利用`kube-scheduler`中的一个`Allocated Pod`来实现，工作量小，实现简单。
+​	修复方案有很多种，核心思路是围绕着调度器参考的对象。比较优雅的方式是在`kube-scheduler`中将ip地址也作为一个调度资源，但是这个实现起来工作量相对其他方法大了一点；有个折中取巧的方式是利用`kube-scheduler`中的一个`Allocated Pod`来实现，工作量小，实现简单。
 
 ````diff
 diff --git a/pkg/scheduler/cache/node_info.go b/pkg/scheduler/cache/node_info.go
