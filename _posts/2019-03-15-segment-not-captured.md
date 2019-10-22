@@ -17,11 +17,11 @@ tag: network
 
 ​	换个更直观的tcp flow的图（忽略里面的ECN协商的）：在tcp握手过完成过后，客户端发送请求，服务端返回数据，在`17:48:34.242222`时间片之前丢了一个wireshark说没有抓到（可能是丢了），也就是说在服务端响应过后可能丢了一个包，然后看到三次握手时候的ack重复出现。
 
-![image-20190321190517191](/Users/guohao/workspace/Sn0rt.github.io/media/pic/openvpn-tcp-syn.png)
+![image-20190321190517191](../media/pic/openvpn-tcp-syn.png)
 
 ​	之后是一堆的keeplive ack的报文，keeplive超时时间到了过后服务端reset了tcp connection。
 
-![image-20190321190825868](/Users/guohao/workspace/Sn0rt.github.io/media/pic/openvpn-keeplive.png)
+![image-20190321190825868](../media/pic/openvpn-keeplive.png)
 
 ​	通过Google发现网络上的文章都是说存在网络链路质量问题导致丢包。但是我的环境是使用的`openvpn`链接到开发环境，也就是说`openvpn`提供的链路可能有问题，遂尝试点开vpn客户端探索一下可配置项，发现`openvpn`版本是使用v2.3.17版本。
 
