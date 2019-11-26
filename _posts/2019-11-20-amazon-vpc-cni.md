@@ -3,7 +3,7 @@ author: sn0rt
 comments: true
 date: 2019-11-20
 layout: post
-title:  amzone aws cni 踩坑
+title:  amzon aws cni 踩坑
 tag: k8s
 ---
 
