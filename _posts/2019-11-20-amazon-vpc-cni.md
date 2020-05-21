@@ -157,5 +157,6 @@ default via 10.0.10.1 dev eth1
 admin@ip-10-0-10-207:~$ sudo ip route del 10.0.10.0/24 dev eth1 proto kernel scope link src 10.0.10.190
 ```
 
-只要将 eth1 的明细路由删除, 影响路由决策让来的数据包走原来的网络接口回去.
+只要将 eth1 的明细路由删除, 影响路由决策让来的数据包走原来的网络接口回去。
 
+当然还有其他方案，比如说在 AWS的 console 上关闭 ec2 instance 的来源地址检查也可以。
