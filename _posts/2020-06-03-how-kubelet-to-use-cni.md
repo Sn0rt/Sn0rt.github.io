@@ -361,3 +361,44 @@ func (plugin *cniNetworkPlugin) buildCNIRuntimeConf(podName string, podNs string
 ```
 
 这后面就是按照`cni`的标准调用`cni`二进制了。
+
+## 问题分析
+
+基于之前的分析，其实出问题的地方很清楚了。就是`plugin.host.GetNetNS(id.ID)`过程错误了。
+
+```go
+// GetNetNS returns the network namespace of the given containerID. The ID
+// supplied is typically the ID of a pod sandbox. This getter doesn't try
+// to map non-sandbox IDs to their respective sandboxes.
+func (ds *dockerService) GetNetNS(podSandboxID string) (string, error) {
+	r, err := ds.client.InspectContainer(podSandboxID) // 这个就是调用 docker client 了
+	if err != nil {
+		return "", err
+	}
+	return getNetworkNamespace(r)
+}
+```
+
+```go
+func (d *kubeDockerClient) InspectContainer(id string) (*dockertypes.ContainerJSON, error) {
+	ctx, cancel := d.getTimeoutContext()
+	defer cancel()
+	containerJSON, err := d.client.ContainerInspect(ctx, id) // 这个地方就是
+...
+	return &containerJSON, nil
+}
+```
+
+```go
+func getNetworkNamespace(c *dockertypes.ContainerJSON) (string, error) {
+   if c.State.Pid == 0 {
+      // Docker reports pid 0 for an exited container.
+      return "", fmt.Errorf("cannot find network namespace for the terminated container %q", c.ID)
+   }
+   // dockerNetNSFmt = "/proc/%v/ns/net"
+   return fmt.Sprintf(dockerNetNSFmt, c.State.Pid), nil 
+}
+```
+
+结合`ELK`错误日志初步判断出就是`if c.State.Pid == 0 {`这个逻辑被触发了，也就说 `sandbox`的container的`docker state pid`为`0`。
+
