@@ -9,7 +9,7 @@ tag: k8s
 
 出于 `containerd` 上线需求，走读线上组件的代码确定现有 `POD` 创建流程，主要关注的是组件之间是如何交互沟通的进行 `POD` 创建的。
 
-![kubelet-create-pod](../media/pic/kubelet-create-pod.jpg)
+![kubelet-create-pod](../media/pic/kubelet-create-pod-with-docker.jpg)
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
